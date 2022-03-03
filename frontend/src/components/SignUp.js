@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { TextInput } from "react-materialize";
-
+//Sign in button routes to sign in page
 export default () => {
 
     const [data, setData] = useState({
@@ -35,6 +35,15 @@ export default () => {
                 <TextInput label="Email" onChange={e=>onChangeText('email', e.target.value)} />
                 <TextInput label="Password" onChange={e=>onChangeText('password', e.target.value)} />
                 <button>Submit</button>
+                <hr
+                    style={{
+                    color:"black",
+                    backgroundColor: "black",
+                    height: 0.5
+                    }}
+                />
+                <p>Have an Account?  <button>Sign In</button> 
+                </p>  
             </div>
         </div>
     );

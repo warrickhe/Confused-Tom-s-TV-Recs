@@ -12,7 +12,19 @@ export default () => {
             <div className="outerBox">
                 <TextInput label="Username" />
                 <TextInput label="Password" />
+                <button> Sign In</button>
+                <hr
+                    style={{
+                    color:"black",
+                    backgroundColor: "black",
+                    height: 0.5
+                    }}
+                />
+            <p>No Account? <button>Sign Up</button> 
+            </p>    
             </div>
+            
+            
         </div>
     )
 }

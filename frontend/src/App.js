@@ -6,15 +6,15 @@ import Navbar from './components/Navbar';
 import SingleReview from './components/SingleReview';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
+import SignInPage from "./pages/SignInPage";
+import SignUpPage from "./pages/SignUpPage";
 
 
 function App() {
 
   return (
     <div className="App">
-      <Navbar />
-      <ProfilePage />
-      <SingleReview />
+      <SignUpPage />
     </div>
   );
 }
