@@ -35,5 +35,6 @@ mongoose.connect(url, {
 });
 
 const userRouter = require('./routes/users')
-
+const reviewRouter = require('./routes/reviews')
 app.use("/",userRouter)
+app.use("/",reviewRouter)

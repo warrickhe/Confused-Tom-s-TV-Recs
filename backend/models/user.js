@@ -19,7 +19,7 @@ const UserSchema = new mongoose.Schema({
     username: {
         type: String,
         required : true,
-        maxlength: 255,
+        maxlength: 20,
         unique : true
     },
     password: {
@@ -36,7 +36,7 @@ UserSchema.methods.validatePassword = function(password) {
 
 function validateUserLogin(user) {
     const schema = Joi.object({
-        username: Joi.string().max(255),
+        username: Joi.string().max(20),
         password: Joi.string().min(3).max(255).required()
     });
     return schema.validate(user);
