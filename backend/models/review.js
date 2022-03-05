@@ -1,5 +1,4 @@
 const Joi = require('joi');
-Joi.ObjectId = require('joi-objectid')(Joi);
 const mongoose = require('mongoose');
 //notes: add auth later
 //pw and user will follow format userN passN

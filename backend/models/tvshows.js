@@ -1,5 +1,4 @@
 const Joi = require('joi');
-Joi.ObjectId = require('joi-objectid')(Joi);
 const mongoose = require('mongoose');
 const TVShowSchema = new mongoose.Schema({
     ShowName: {

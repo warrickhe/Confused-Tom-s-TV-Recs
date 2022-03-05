@@ -1,11 +1,5 @@
-const jwt = require('jsonwebtoken');
 const Joi = require('joi');
-Joi.ObjectId = require('joi-objectid')(Joi);
 const mongoose = require('mongoose');
-//notes: add auth later
-//pw and user will follow format userN passN
-
-
 //add friends, and add reviews
 //friends should link to other Users
 //reviews link to other reviews
@@ -28,12 +22,6 @@ const UserSchema = new mongoose.Schema({
         maxlength: 255,
         unique : true
     },
-    email: {
-        type: String,
-        required: true,
-        minlength: 5,
-        unique: true
-    },
     password: {
     	type: String,
     	required: true,
@@ -42,15 +30,32 @@ const UserSchema = new mongoose.Schema({
     }
 });
 
+UserSchema.methods.validatePassword = function(password) {
+    return password === this.password
+}
+
+function validateUserLogin(user) {
+    const schema = Joi.object({
+        username: Joi.string().max(255),
+        password: Joi.string().min(3).max(255).required()
+    });
+    return schema.validate(user);
+}
+
 function validateUserRegister(user) {
-    const schema = {
+    const schema = Joi.object({
         firstName: Joi.string().min(1).max(50).required(),
         lastName: Joi.string().min(1).max(50).required(),
         username: Joi.string().max(255).required(),
-        email: Joi.string().min(5).required().email(),
         password: Joi.string().min(3).max(255).required(),
-    };
-    return Joi.validate(user, schema);
+    });
+    return schema.validate(user);
 }
 
 const User = mongoose.model('User', UserSchema);
+
+module.exports = {
+    User:User,
+    validateLogin:validateUserLogin,
+    validateRegister:validateUserRegister,
+}
