@@ -24,6 +24,7 @@ app.listen(PORT, function() {
 });
 
 const url = "mongodb+srv://Admin:strongpassword@cluster0.tjual.mongodb.net/ConfusedTom?retryWrites=true&w=majority"
+
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
