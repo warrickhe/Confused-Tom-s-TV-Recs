@@ -8,13 +8,18 @@ import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
+import Searches from "./components/Searches";
 
 
 function App() {
 
   return (
     <div className="App">
-      <SignUpPage />
+      <Navbar/>
+      <Searches/>
+      <SignIn/>
+      <SignUp/>
+      <SingleReview/>
     </div>
   );
 }

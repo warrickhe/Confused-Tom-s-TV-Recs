@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextInput } from "react-materialize";
+import { Button,TextInput } from "react-materialize";
 //Sign in button routes to sign in page
 export default () => {
 
@@ -34,7 +34,7 @@ export default () => {
                 <TextInput label="Username" onChange={e=>onChangeText('username', e.target.value)} />
                 <TextInput label="Email" onChange={e=>onChangeText('email', e.target.value)} />
                 <TextInput label="Password" onChange={e=>onChangeText('password', e.target.value)} />
-                <button>Submit</button>
+                <a href="home"><Button>Submit</Button></a>
                 <hr
                     style={{
                     color:"black",
@@ -42,7 +42,9 @@ export default () => {
                     height: 0.5
                     }}
                 />
-                <p>Have an Account?  <button>Sign In</button> 
+                <p>Have an Account?  <a href="Sign-In" style={{ color: "blue" }}>
+                          Sign In
+                        </a>
                 </p>  
             </div>
         </div>

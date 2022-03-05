@@ -1,5 +1,5 @@
 import React from "react";
-import { TextInput } from "react-materialize";
+import { Button,TextInput } from "react-materialize";
 
 export default () => {
     return (
@@ -12,7 +12,7 @@ export default () => {
             <div className="outerBox">
                 <TextInput label="Username" />
                 <TextInput label="Password" />
-                <button> Sign In</button>
+                <a href="home"> <Button> Sign In</Button></a>
                 <hr
                     style={{
                     color:"black",
@@ -20,7 +20,9 @@ export default () => {
                     height: 0.5
                     }}
                 />
-            <p>No Account? <button>Sign Up</button> 
+            <p>No Account? <a href="Sign-In" style={{ color: "blue" }}>
+                          Sign Up
+                        </a> 
             </p>    
             </div>
             
