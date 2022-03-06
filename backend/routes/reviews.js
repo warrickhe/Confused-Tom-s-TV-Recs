@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const express = require("express");
 const router = express.Router();
 const ObjectId = mongoose.Types.ObjectId;
-const TVShow = require("../models/tvshows.js")
 const User = require("../models/user.js").User
 const { Review, validateReview} = require("../models/review.js")
 
