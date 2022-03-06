@@ -27,7 +27,10 @@ const UserSchema = new mongoose.Schema({
     	required: true,
     	minLength: 5,
     	maxLength: 15
-    }
+    },
+    friends : {
+        type: Array,
+    },
 });
 
 UserSchema.methods.validatePassword = function(password) {
