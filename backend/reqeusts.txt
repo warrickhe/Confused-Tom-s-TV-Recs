@@ -1,0 +1,10 @@
+reqeuests needed:
+verify login
+check if username exists
+add user (return status 1 if username exists)
+get list of user friends (exact username)
+get list of tv show names (exact name)
+get user's friends reviews (by most recent)
+get user profile info
+change user profile info
+write a review (if the tv show doesn't already exist, create it)
