@@ -104,6 +104,7 @@ const OneFriend = (props) => {
       const response = await fetch(`http://localhost:4000/username/${username}`);
       if (!response.ok) {
         const message = `An error has occurred: ${response.statusText}`;
+        console.log(response);
         window.alert(message);
         return;
       }

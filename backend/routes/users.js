@@ -7,10 +7,15 @@ const { Review, validateReview} = require("../models/review.js")
 
 //GET REQUESTS
 router.get("/username/:username", async (req, res) => {
-	console.log("reached!")
     var user = await User.findOne({ username: req.params.username });
     if (!user) return res.status(400).send("User doesn't exist.");
-    return res.status(200).send(user)
+    return res.status(200).send(user);
+});
+
+router.get("/username/:username/friends", async (req, res) => {
+    var user = await User.findOne({ username: req.params.username });
+    if (!user) return res.status(400).send("User doesn't exist.");
+    return res.status(200).send(user.friends);
 });
 
 router.get("/feed", async (req, res) => {

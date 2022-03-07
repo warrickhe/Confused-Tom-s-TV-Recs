@@ -45,6 +45,7 @@ router.post("/review", async(req,res) => {
         showName: req.body.showName,
         rating: req.body.rating,
         review: req.body.review,
+        date: new Date(req.body.date),
         username: req.body.username,
     });
     review.save()

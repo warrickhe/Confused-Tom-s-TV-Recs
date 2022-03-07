@@ -13,7 +13,7 @@ const App = () => {
     <div>
       <Navbar />
       <Routes>
-        <Route path="/" element={<UserPage username={"sfrank"}/>} />
+        <Route path="/" element={<UserPage username={"isWarrick"}/>} />
       </Routes>
     </div>
   );
