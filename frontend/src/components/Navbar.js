@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar, Icon, NavItem, Container } from "react-materialize";
+import {Link} from "react-router-dom"
 
 export default () => {
   return (
@@ -30,7 +31,7 @@ export default () => {
           }}
         >
             <NavItem href="">
-                Profile
+                <Link to="/about">Go To About</Link>
             </NavItem>
             <NavItem href="components.html">
                 Log out
