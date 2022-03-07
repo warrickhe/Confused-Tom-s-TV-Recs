@@ -3,7 +3,10 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 //just show server is running
 
-const app = express()
+const app = express();
+const cors = require("cors");
+app.use(cors());
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 const PORT = 4000;

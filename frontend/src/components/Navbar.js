@@ -1,7 +1,8 @@
 import React from "react";
 import { Navbar, Icon, NavItem, Container } from "react-materialize";
+import F from "../movies-icon.jpg";
 
-export default () => {
+export default ({ stage }) => {
   return (
     <div style={{ background: "paleturquoise" }}>
       <Container>
@@ -11,8 +12,9 @@ export default () => {
             <a
               className="brand-logo"
               href="www.google.com"
+              style={{ paddingTop: 8 }}
             >
-                Logo
+              <img src={F} alt="Logo" height="40px" />
             </a>
           }
           className="custom-navbar"
@@ -29,12 +31,17 @@ export default () => {
             preventScrolling: true
           }}
         >
-            <NavItem href="">
-                Profile
+          {/* {stage === "loggedIn" && ( */}
+            <NavItem
+              onClick={event => {
+                //Stop the reloading of the page
+                event.preventDefault();
+                //firebaseApp.auth().signOut();
+              }}
+            >
+              Log out
             </NavItem>
-            <NavItem href="components.html">
-                Log out
-            </NavItem>
+          {/* )} */}
         </Navbar>
       </Container>
     </div>

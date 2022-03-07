@@ -35,7 +35,7 @@ function validateReview(review) {
         showName: Joi.string().max(60).required(),
         rating: Joi.number().min(1).max(5).required(),
         review: Joi.string().max(255),
-        date: new Date(),
+        date: Joi.date().raw(),
         username: Joi.string().max(20).required(),
     });
     return schema.validate(review);
