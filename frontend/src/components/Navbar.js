@@ -36,7 +36,6 @@ export default ({ stage }) => {
               onClick={event => {
                 //Stop the reloading of the page
                 event.preventDefault();
-                //firebaseApp.auth().signOut();
               }}
             >
               Log out
