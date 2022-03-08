@@ -4,41 +4,41 @@ import EditProfile from "./EditProfile";
 import { useParams, useNavigate } from "react-router";
 
 export default ({ username }) => {
-    const [data, setData] = useState({
-        firstName: "",
-        lastName: "",
-        username: username, 
-        password: "",
-    });
+  const [data, setData] = useState({
+    firstName: "",
+    lastName: "",
+    username: username,
+    password: "",
+  });
 
-    console.log("username is " + username);
-    const params = useParams();
-    const navigate = useNavigate();
+  console.log("username is " + username);
+  const params = useParams();
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        async function fetchData() {
-        
-          const response = await fetch(`http://localhost:4000/username/${username}`);
-          if (!response.ok) {
-            const message = `An error has occurred: ${response.statusText}`;
-            window.alert(message);
-            return;
-          }
-          const record = await response.json();
-          if (!record) {
-            window.alert(`User with username ${username} not found`);
-            navigate("/");
-            return;
-          }
-      
-          setData(record);
-        }
-      
-        fetchData();
-      
+  useEffect(() => {
+    async function fetchData() {
+
+      const response = await fetch(`http://localhost:4000/username/${username}`);
+      if (!response.ok) {
+        const message = `An error has occurred: ${response.statusText}`;
+        window.alert(message);
         return;
-      }, []);
-      
+      }
+      const record = await response.json();
+      if (!record) {
+        window.alert(`User with username ${username} not found`);
+        navigate("/");
+        return;
+      }
+
+      setData(record);
+    }
+
+    fetchData();
+
+    return;
+  }, []);
+
 
   const [editMode, setEditMode] = useState(false);
 
@@ -46,7 +46,7 @@ export default ({ username }) => {
     setEditMode(false);
   };
 
-  
+
 
   return (
     <div className="outerBox m10">
@@ -60,7 +60,7 @@ export default ({ username }) => {
       ) : (
         <div>
           <div style={{ display: "flex", marginBottom: 10 }}>
-          <div
+            <div
               style={{
                 color: "darkblue",
                 fontFamily: "arial",
