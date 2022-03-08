@@ -26,3 +26,12 @@ body {
 .custom-textArea {
   border: 2px solid red;
 }
+
+
+.app {
+  min-height: 60vh;
+  background: paleturquoise;
+  display: flex; 
+  justify-content: space-around;
+  align-items: center; 
+}

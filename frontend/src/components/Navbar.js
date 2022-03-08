@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar, Icon, NavItem, Container } from "react-materialize";
 import F from "../movies-icon.jpg";
+import { Link } from "react-router-dom"
 
 export default ({ stage }) => {
   return (
@@ -32,14 +33,45 @@ export default ({ stage }) => {
           }}
         >
           {/* {stage === "loggedIn" && ( */}
-            <NavItem
-              onClick={event => {
-                //Stop the reloading of the page
-                event.preventDefault();
-              }}
-            >
-              Log out
-            </NavItem>
+
+
+          {/* 
+          The following are the buttons in NavBar.
+          
+          
+          */}
+
+          <NavItem
+            onClick={event => {
+              //Stop the reloading of the page
+              event.preventDefault();
+            }}
+          >
+            <Link to="/">Home</Link>
+          </NavItem>
+
+          <NavItem
+            onClick={event => {
+              //Stop the reloading of the page
+              event.preventDefault();
+            }}
+          >
+            <Link to="/about">About</Link>
+          </NavItem>
+
+          <NavItem
+            onClick={event => {
+              //Stop the reloading of the page
+              event.preventDefault();
+            }}
+          >
+            Log out
+          </NavItem>
+
+
+
+
+
           {/* )} */}
         </Navbar>
       </Container>
