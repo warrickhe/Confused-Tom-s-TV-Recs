@@ -9,8 +9,10 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import AboutPage from "./pages/AboutPage"
+import AboutPage from "./pages/AboutPage";
 import UserPage from './components/UserPage';
+import UnknownPage from "./pages/UnknownPage";
+
 
 //I added url for homepage and About page, Nima
 const rootElement = document.getElementById("root");
@@ -23,6 +25,7 @@ ReactDOM.render(
         <Route path="about" element={<AboutPage />} />
         <Route path="userpage" element={<UserPage username={"Nima"}/>} />
         </Route>
+        <Route path="*" element={<UnknownPage />} />
       </Routes>
     </BrowserRouter>
 
