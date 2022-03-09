@@ -6,21 +6,11 @@ import { Link } from "react-router-dom";
 
 const OneFriend = (props) => {
 
-    const navigate = useNavigate;
-
     // router for review deletion not defined yet!
     const onFriendDelete = (event, key) => {
       event.preventDefault();
       // const result = deletePost(key);
       // console.log(result);
-    };
-
-    const onFriendSelect = (event, key) => {
-      event.preventDefault();
-
-      // const result = deletePost(key);
-      // console.log(result);
-      // navigate("/${props.fUserName}");
     };
   
    return (
@@ -36,12 +26,9 @@ const OneFriend = (props) => {
                   color: "#385898",
                   fontWeight: 600
                 }}
-                onClick={event => {
-                  //setFriendSelected(true);
-                  //onFriendSelect(event, props.fUserName);
-                }}
               >
-                {props.fUserName}
+                <Link className="btn btn-link" to={`/userprof/${props.fUserName}`}>{props.fUserName}</Link>
+                {/* {props.fUserName} */}
               </div>
             </div>
             {props.fUserName === props.fUserName &&  (
@@ -102,19 +89,13 @@ const OneFriend = (props) => {
           password: "",
           friends: [],
         });
-    const [friendSelected, setFriendSelected ] = useState(0);
-    //const [friends, setFriends] = useState([]);
+    
     const navigate = useNavigate();
     console.log(username);
+
    // This method fetches the records from the database.
     useEffect(() => {
      async function getFriends() {
-      // const response = await fetch("http://localhost:4000/friends/${username}");
-      // if (!response.ok) {
-      //     const message = `An error occurred: ${response.statusText}`;
-      //     window.alert(message);
-      //     return;
-      // }
   
       const response = await fetch(`http://localhost:4000/username/${username}`);
       if (!response.ok) {
@@ -134,27 +115,20 @@ const OneFriend = (props) => {
        console.log(data);
        setData(data);
      }
-   
-     if (friendSelected){
-       navigate("${username}");
-       return;
-     }
      
      getFriends();
      return;
-   }, [friendSelected]);
+   }, [username]);
    
    
    //This method will map out the records on the table
    function friendsList() {
+     if(!data.friends) return(<div> No friends </div>)
      return data.friends.map((friend) => {
-       console.log(friend);
        return (
         <div>
          <OneFriend
            fUserName={friend}
-           //deleteReview={() => deleteReview(record._id)}
-           //key={review._id}
          />
          </div>
        );
@@ -163,7 +137,7 @@ const OneFriend = (props) => {
    
    return (
     <div>
-      <h3>My Friends</h3>
+      <h3>Friends</h3>
       <div>
         {friendsList()}
       </div>

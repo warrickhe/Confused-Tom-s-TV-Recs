@@ -143,7 +143,7 @@ export default ({ username, wantFeed }) => {
     getReviews();
 
     return;
-  }, [reviews.length]);
+  }, [username]);
 
   // This method will delete a review -- router Not implemented yet!
   //  async function deleteReview(id) {

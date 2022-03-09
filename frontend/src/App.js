@@ -23,6 +23,7 @@ const App = () => {
         <Route path="/" element={<LoggedInHomePage/>} />
         <Route path="about" element={<AboutPage />} />
         <Route path="*" element={<UnknownPage />} />
+        <Route path="/userprof/:uname" element={<UserPage />} />
       </Routes>
     </div>
   );
