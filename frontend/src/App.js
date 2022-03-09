@@ -28,7 +28,7 @@ const App = () => {
         <Route path="/review/show/:showName" element={<TvPage/>} />
         <Route path="about" element={<AboutPage />} />
         <Route path="*" element={<UnknownPage />} />
-        <Route path="/UserPage" element={<UserPage username={'isWarrick'} />}/>
+        <Route path="/userprof/:uname" element={<UserPage />} />
       </Routes>
     </div>
   );

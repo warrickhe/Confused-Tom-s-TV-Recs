@@ -27,12 +27,13 @@ const OneFriend = (props) => {
                   fontWeight: 600
                 }}
               >
-                {props.fUserName}
+                <Link className="btn btn-link" to={`/userprof/${props.fUserName}`}>{props.fUserName}</Link>
+                {/* {props.fUserName} */}
               </div>
             </div>
             {props.fUserName === props.fUserName &&  (
               <div>
-                <Dropdown
+                {/* <Dropdown
                   options={{
                     alignment: "left",
                     autoTrigger: true,
@@ -66,7 +67,7 @@ const OneFriend = (props) => {
                   >
                     Delete
                   </a>
-                </Dropdown>
+                </Dropdown> */}
               </div>
             )}
            {/* } */}
@@ -88,18 +89,13 @@ const OneFriend = (props) => {
           password: "",
           friends: [],
         });
-    //const [friends, setFriends] = useState([]);
+    
     const navigate = useNavigate();
     console.log(username);
+
    // This method fetches the records from the database.
     useEffect(() => {
      async function getFriends() {
-      // const response = await fetch("http://localhost:4000/friends/${username}");
-      // if (!response.ok) {
-      //     const message = `An error occurred: ${response.statusText}`;
-      //     window.alert(message);
-      //     return;
-      // }
   
       const response = await fetch(`http://localhost:4000/username/${username}`);
       if (!response.ok) {
@@ -119,22 +115,20 @@ const OneFriend = (props) => {
        console.log(data);
        setData(data);
      }
-   
+     
      getFriends();
      return;
-   }, []);
+   }, [username]);
    
    
    //This method will map out the records on the table
    function friendsList() {
+     if(!data.friends) return(<div> No friends </div>)
      return data.friends.map((friend) => {
-       console.log(friend);
        return (
         <div>
          <OneFriend
            fUserName={friend}
-           //deleteReview={() => deleteReview(record._id)}
-           //key={review._id}
          />
          </div>
        );
@@ -143,7 +137,7 @@ const OneFriend = (props) => {
    
    return (
     <div>
-      <h3>My Friends</h3>
+      <h3>Friends</h3>
       <div>
         {friendsList()}
       </div>

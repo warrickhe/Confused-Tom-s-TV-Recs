@@ -46,7 +46,7 @@ const Review = (props) => {
                   Rating
                 </div>
                 <div style={{ fontSize: 12, color: "gray" }}>
-                  {props.review.rating}
+                  {props.review.rating}/5
                 </div>
               </div>
               <div style={{ marginLeft: 5, flex: 1 }}>
@@ -64,7 +64,7 @@ const Review = (props) => {
               </div>
               {props.review.username === props.review.username && (
                 <div>
-                  <Dropdown
+                  {/* <Dropdown
                     options={{
                       alignment: "left",
                       autoTrigger: true,
@@ -98,7 +98,7 @@ const Review = (props) => {
                     >
                       Delete
                     </a>
-                  </Dropdown>
+                  </Dropdown> */}
                 </div>
               )}
               {/* } */}
@@ -143,7 +143,7 @@ export default ({ username, wantFeed }) => {
     getReviews();
 
     return;
-  }, [reviews.length]);
+  }, [username]);
 
   // This method will delete a review -- router Not implemented yet!
   //  async function deleteReview(id) {

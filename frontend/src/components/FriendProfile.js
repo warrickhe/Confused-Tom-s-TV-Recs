@@ -121,12 +121,20 @@ export default ({ username }) => {
     });
   }
 
-  return (
+  return ( 
+    <Container>
+    <Row>
+    <Col s={12} m={4}>
+    </Col>
+    </Row>
+    <Col s={12} m={8}>
     <div>
       <h3> {username}'s Reviews</h3>
       <div>
         {reviewsList()}
       </div>
     </div>
+    </Col>
+    </Container>
   );
 }

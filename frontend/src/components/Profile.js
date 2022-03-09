@@ -37,7 +37,7 @@ export default ({ username }) => {
     fetchData();
 
     return;
-  }, []);
+  }, [username]);
 
 
   const [editMode, setEditMode] = useState(false);
@@ -45,8 +45,6 @@ export default ({ username }) => {
   const changeToFalse = () => {
     setEditMode(false);
   };
-
-
 
   return (
     <div className="outerBox m10">
@@ -75,26 +73,12 @@ export default ({ username }) => {
                 : "Loading"} */}
               {data.firstName}   {data.lastName}
             </div>
-            <div
+            {/* <div
               style={{ cursor: "pointer", marginTop: 10, color: "darkred" }}
               onClick={() => setEditMode(true)}
             >
               <Icon>edit</Icon>
-            </div>
-          </div>
-          <div style={{ borderTop: "1px solid lightgray" }}>
-            <div
-              style={{
-                color: "darkblue",
-                fontFamily: "arial",
-                marginTop: 10
-              }}
-            >
-              About me:
-            </div>
-            <div style={{ fontSize: 12 }}>
-              CS student at UCLA.
-            </div>
+            </div> */}
           </div>
         </div>
       )}
