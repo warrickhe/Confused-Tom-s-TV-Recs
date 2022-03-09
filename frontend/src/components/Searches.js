@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import { Button, TextInput } from "react-materialize";
 import {  useNavigate } from "react-router";
 import { Navigate, useParams } from "react-router-dom";
+import UserContext from "../UserContext";
 
 export default function Searches({navigation}) {
   const [data, setData] = useState({
     mSearch:"",
     fSearch:""
   });
-  
+  const {user, setUser} = useContext(UserContext);
   const onChangeText = (key, value) => {
     const newData = {...data};
     newData[key] = value;
@@ -46,6 +47,7 @@ export default function Searches({navigation}) {
       async function FetchData() {
           
           const response = await fetch(`http://localhost:4000/username/${searchData.username}`);
+          
           if (!response.ok) {
             const message = `An error has occurred: ${response.statusText}`;
             window.alert(message);
@@ -55,8 +57,11 @@ export default function Searches({navigation}) {
           if (!record) {
             window.alert(`User with username ${searchData.username} not found`);
             return;
+          }else if (searchData.username==user){
+            window.alert(`Searching for self`);
+            return;
           }else{
-            navigate(`review/user/${searchData.username}`)
+            navigate(`/review/user/${searchData.username}`)
           }
       }
       FetchData();

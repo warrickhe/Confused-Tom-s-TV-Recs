@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Container, Row, Col, TextInput } from "react-materialize"
+import React, { useEffect, useState ,useContext} from "react";
+import { Container, Row, Col, TextInput ,Button} from "react-materialize"
 import moment from "moment";
-import { Link } from "react-router-dom";
+import { Link ,useParams} from "react-router-dom";
+import UserContext from "../UserContext";
 
 const Review = (props) => {
   const onReviewDelete = (event, id) => {
@@ -85,9 +86,19 @@ const Review = (props) => {
 
 }
 
-export default ({ username }) => {
+export default ({ }) => {
+  const params = useParams();
+  const username = params.username.toString();
   const [reviews, setReviews] = useState([]);
-  console.log(username);
+  const {user, setUser} = useContext(UserContext);
+  const [data, setData] = useState({
+    myUsername:user,
+    friendUsername:username
+  });
+  const [btState, setState] = useState({
+    state:false
+  });
+  console.log("x",user);
   // This method fetches the records from the database.
   useEffect(() => {
     async function getReviews() {
@@ -107,6 +118,34 @@ export default ({ username }) => {
     return;
   }, [reviews.length]);
 
+  async function OnAddFriend(e) {
+    e.preventDefault();
+
+    setState({state:true});
+
+    async function FetchData() {
+        const response =await fetch(`http://localhost:4000/addfriend`, {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+        const message = `${response.statusText}`;
+        const ms= await response.text();
+        if (!response.ok){
+            console.log(response);
+            window.alert(ms);
+            return;
+        }
+        
+    };
+
+    FetchData();
+    
+    return;
+
+};
 
   //This method will map out the records on the table
   function reviewsList() {
@@ -130,6 +169,7 @@ export default ({ username }) => {
     <Col s={12} m={8}>
     <div>
       <h3> {username}'s Reviews</h3>
+      <Button  disabled={user==null||btState.state} onClick={OnAddFriend}> Add Friend</Button>
       <div>
         {reviewsList()}
       </div>
