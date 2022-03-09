@@ -9,21 +9,15 @@ import SignUp from '../components/SignUp';
 
 //This is what the website looks like for non-logged in people.
 
-export default function NonLoggedInHomePage() {
+export default function LoggedInHomePage() {
     return (
         <main style={{ padding: "1rem 0" }}>
-            <center><h1 style={{ color: 'paleturquoise' } }>TV Recs</h1></center>
+            <center><h1 style={{ color: 'paleturquoise' } }>TV Reviews</h1></center>
             <div className="app">
                 <Searches />
-                <SignIn />
-                <SignUp />
                 <EditReview />
-                <ReviewsList username={'asdf'}/>
-
+                <ReviewsList username={'isAlsoWarrick'} wantFeed={true}/>
             </div>
-
-
-
         </main>
     )
 }

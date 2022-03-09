@@ -36,7 +36,6 @@ export default (props) => {
 
   return (
     <div>
-      <div onClick={() => props.changeToFalse()}>Go Back</div>
       {/* {image && (
         <img src={URL.createObjectURL(image)} alt="profile pic" height="40px" />
       )}

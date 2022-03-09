@@ -1,19 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button,TextInput } from "react-materialize";
+import { useNavigate } from "react-router";
 //Sign in button routes to sign in page
-export default () => {
+function SignUp() {
 
     const [data, setData] = useState({
         firstName:"",
         lastName:"",
         username:"",
-        email:"",
         password:""
-    })
+    });
+    const navigate = useNavigate();
+    async function FetchData() {
+        const signUpData = {
+            firstName:data.firstName,
+            lastName:data.lastName,
+            username:data.username,
+            password:data.password
+        };
+        const response =await fetch(`http://localhost:4000/register`, {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+        const message = `${response.statusText}`;
+        if (!response.ok){
+            console.log(response);
+            window.alert(message);
+            return;
+        }else{
+            console.log(response);
+            navigate("/");
+        }
+    };
+    async function OnSubmit(e) {
+      
+        FetchData();
+        return;
 
-    const onSubmit = () => {
-
-    }
+    }; 
+    
+  
 
     const onChangeText = (key, value) => {
         const newData = {...data};
@@ -32,9 +61,9 @@ export default () => {
                 <TextInput label="First Name" onChange={e=>onChangeText('firstName', e.target.value)} />
                 <TextInput label="Last Name" onChange={e=>onChangeText('lastName', e.target.value)} />
                 <TextInput label="Username" onChange={e=>onChangeText('username', e.target.value)} />
-                <TextInput label="Email" onChange={e=>onChangeText('email', e.target.value)} />
+
                 <TextInput label="Password" onChange={e=>onChangeText('password', e.target.value)} />
-                <a href="home"><Button>Submit</Button></a>
+                <Button onClick={OnSubmit}>Submit</Button>
                 <hr
                     style={{
                     color:"black",
@@ -50,3 +79,4 @@ export default () => {
         </div>
     );
 };
+export default SignUp;

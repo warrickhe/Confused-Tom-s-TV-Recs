@@ -112,21 +112,32 @@ const Review = (props) => {
 
 }
 
-export default ({ username }) => {
+export default ({ username, wantFeed }) => {
   const [reviews, setReviews] = useState([]);
   console.log(username);
   // This method fetches the records from the database.
   useEffect(() => {
     async function getReviews() {
-      const response = await fetch(`http://localhost:4000/review/user/${username}`);
-      if (!response.ok) {
-        const message = `An error occurred in ReviewsList: ${response.statusText}`;
-        console.log(message);
-        return;
+      if (wantFeed){
+        const response = await fetch(`http://localhost:4000/feed/${username}`);
+        console.log(response)
+        if (!response.ok) {
+          const message = `An error occurred in ReviewsList: ${response.statusText}`;
+          console.log(message);
+          return;
+        }
+        const data = await response.json();
+        setReviews(data);
+      } else {
+        const response = await fetch(`http://localhost:4000/review/user/${username}`);
+        if (!response.ok) {
+          const message = `An error occurred in ReviewsList: ${response.statusText}`;
+          console.log(message);
+          return;
+        }
+        const data = await response.json();
+        setReviews(data);
       }
-
-      const data = await response.json();
-      setReviews(data);
     }
 
     getReviews();
@@ -160,7 +171,7 @@ export default ({ username }) => {
 
   return (
     <div>
-      <h3>My Reviews</h3>
+      <h3>Reviews</h3>
       <div>
         {reviewsList()}
       </div>
