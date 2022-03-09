@@ -20,13 +20,7 @@ const rootElement = document.getElementById("root");
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-        <Route path="about" element={<AboutPage />} />
-        <Route path="userpage" element={<UserPage username={"Nima"}/>} />
-        </Route>
-        <Route path="*" element={<UnknownPage />} />
-      </Routes>
+     <App/>
     </BrowserRouter>
 
   </React.StrictMode>,
