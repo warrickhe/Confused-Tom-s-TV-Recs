@@ -25,13 +25,14 @@ function SignUp() {
                 'Content-Type': 'application/json'
             },
         });
+        const ms= await response.text();
         const message = `${response.statusText}`;
         if (!response.ok){
             console.log(response);
-            window.alert(message);
+            window.alert(ms);
             return;
         }else{
-            console.log(response);
+        
             navigate("/");
         }
     };
@@ -62,7 +63,8 @@ function SignUp() {
                 <TextInput label="Last Name" onChange={e=>onChangeText('lastName', e.target.value)} />
                 <TextInput label="Username" onChange={e=>onChangeText('username', e.target.value)} />
 
-                <TextInput label="Password" onChange={e=>onChangeText('password', e.target.value)} />
+                <TextInput password={true} label="Password"
+                onChange={e=>onChangeText('password', e.target.value)} />
                 <Button onClick={OnSubmit}>Submit</Button>
                 <hr
                     style={{

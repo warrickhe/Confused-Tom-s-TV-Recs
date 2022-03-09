@@ -26,14 +26,15 @@ function  SignIn()  {
                 },
             });
             const message = `${response.statusText}`;
+            const ms= await response.text();
             if (!response.ok){
                 navigate("/Sign-In");
                 console.log(response);
-                window.alert(message);
+                window.alert(ms);
 
                 return;
             }else{
-                window.alert(message);
+            
                 navigate("/");
 
             }
@@ -48,6 +49,7 @@ function  SignIn()  {
         newData[key] = value;
         setData(newData)
     };
+
     return (
         <div
             style={{
@@ -57,7 +59,9 @@ function  SignIn()  {
         >
             <div className="outerBox">
                 <TextInput label="Username" onChange={e=>onChangeText('username', e.target.value)} />
-                <TextInput label="Password" onChange={e=>onChangeText('password', e.target.value)} />
+                
+                <TextInput password={true} label="Password"
+                onChange={e=>onChangeText('password', e.target.value)} />
                 <Button onClick={OnSignIn}> Sign In</Button>
                 <hr
                     style={{

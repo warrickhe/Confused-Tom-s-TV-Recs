@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Button, TextInput } from "react-materialize";
-import { useParams, useNavigate } from "react-router";
+import {  useNavigate } from "react-router";
+import { Navigate, useParams } from "react-router-dom";
 
-
-export default function Searches() {
+export default function Searches({navigation}) {
   const [data, setData] = useState({
     mSearch:"",
     fSearch:""
   });
+  
   const onChangeText = (key, value) => {
     const newData = {...data};
     newData[key] = value;
@@ -19,7 +20,6 @@ export default function Searches() {
     showName: data.mSearch
   };
   async function mSearch(ex) {
-    console.log("x");
     ex.preventDefault();
     async function FetchData1() {
   
@@ -34,7 +34,7 @@ export default function Searches() {
           window.alert(`TV Show ${searchData.showName} not found`);
           return;
         }else{
-          navigate(`/shows/${searchData.showName}`)
+          navigate(`review/show/${searchData.showName}`);
         }
     }
     FetchData1();
@@ -56,7 +56,7 @@ export default function Searches() {
             window.alert(`User with username ${searchData.username} not found`);
             return;
           }else{
-            navigate(`user/${searchData.username}`)
+            navigate(`review/user/${searchData.username}`)
           }
       }
       FetchData();
