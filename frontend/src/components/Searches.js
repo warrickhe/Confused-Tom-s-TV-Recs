@@ -46,6 +46,7 @@ export default function Searches({navigation}) {
       async function FetchData() {
           
           const response = await fetch(`http://localhost:4000/username/${searchData.username}`);
+          
           if (!response.ok) {
             const message = `An error has occurred: ${response.statusText}`;
             window.alert(message);
@@ -56,7 +57,7 @@ export default function Searches({navigation}) {
             window.alert(`User with username ${searchData.username} not found`);
             return;
           }else{
-            navigate(`review/user/${searchData.username}`)
+            navigate(`/review/user/${searchData.username}`)
           }
       }
       FetchData();

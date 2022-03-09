@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import { Route, Routes } from "react-router-dom";
 import "materialize-css/dist/css/materialize.min.css"
 import './App.css';
@@ -13,12 +13,16 @@ import UnknownPage from "./pages/UnknownPage";
 import TvPage from "./pages/TvPage";
 import FriendProfile from "./components/FriendProfile";
 import ReviewsList from "./components/ReviewsList";
-
+import UserContext from "./UserContext";
 
 const App = () => {
-
+  const [user, setUser] = useState(null);
   return (
     <div>
+      <UserContext.Provider value={{
+      user,
+      setUser
+    }}>
       <Navbar/>      
       <Routes>
         <Route path="/Sign-In" element={<SignInPage/>}/>
@@ -30,6 +34,7 @@ const App = () => {
         <Route path="*" element={<UnknownPage />} />
         <Route path="/userprof/:uname" element={<UserPage />} />
       </Routes>
+      </UserContext.Provider>
     </div>
   );
 }

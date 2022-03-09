@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import { Button,TextInput } from "react-materialize";
 import { useNavigate } from "react-router";
+import UserContext from "../UserContext";
+
 //Sign in button routes to sign in page
 function SignUp() {
 
@@ -10,6 +12,7 @@ function SignUp() {
         username:"",
         password:""
     });
+    const {user, setUser} = useContext(UserContext);
     const navigate = useNavigate();
     async function FetchData() {
         const signUpData = {
@@ -31,13 +34,13 @@ function SignUp() {
             console.log(response);
             window.alert(ms);
             return;
-        }else{
-        
-            navigate("/");
         }
+        setUser(signUpData.username);
+        navigate("/");
+        
     };
     async function OnSubmit(e) {
-      
+
         FetchData();
         return;
 

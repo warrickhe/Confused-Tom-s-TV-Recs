@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,useContext} from "react";
 import { Button,TextInput } from "react-materialize";
 import { useParams, useNavigate } from "react-router";
+import UserContext from "../UserContext";
 
 function  SignIn()  {
     const [data, setData] = useState({
         username:"",
         password:""
     });
-    
+    const {user, setUser} = useContext(UserContext);
     const navigate = useNavigate();
 
     async function OnSignIn(e) {
@@ -24,22 +25,23 @@ function  SignIn()  {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-            });
+            })
             const message = `${response.statusText}`;
             const ms= await response.text();
             if (!response.ok){
                 navigate("/Sign-In");
                 console.log(response);
                 window.alert(ms);
-
                 return;
-            }else{
-            
-                navigate("/");
-
             }
+            setUser(loginData.username);
+            navigate("/");
+
+            
         };
+
         FetchData();
+        
         return;
 
     };
