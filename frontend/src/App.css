@@ -30,7 +30,6 @@ body {
 
 .app {
   min-height: 60vh;
-  background: paleturquoise;
   display: flex; 
   justify-content: space-around;
   align-items: center; 

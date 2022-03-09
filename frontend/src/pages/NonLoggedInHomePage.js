@@ -12,18 +12,12 @@ import SignUp from '../components/SignUp';
 export default function NonLoggedInHomePage() {
     return (
         <main style={{ padding: "1rem 0" }}>
-            <center><h1 style={{ color: 'paleturquoise' } }>TV Recs</h1></center>
+            <center><h1 style={{ color: 'paleturquoise' } }>TV Reviews</h1></center>
             <div className="app">
                 <Searches />
-                <SignIn />
-                <SignUp />
                 <EditReview />
                 <ReviewsList username={'asdf'}/>
-
             </div>
-
-
-
         </main>
     )
 }
