@@ -19,7 +19,7 @@ export default ({ stage }) => {
             </a>
           }
           className="custom-navbar"
-          menuIcon={<Icon>menu</Icon>}
+          menuIcon={<Icon>Menu</Icon>}
           options={{
             draggable: true,
             edge: "left",
@@ -47,7 +47,7 @@ export default ({ stage }) => {
               event.preventDefault();
             }}
           >
-            <Link to="/">Home</Link>
+            <Link to="/LoggedIn">Home</Link>
           </NavItem>
 
           <NavItem
@@ -65,11 +65,35 @@ export default ({ stage }) => {
               event.preventDefault();
             }}
           >
-            Log out
+            <Link to="/review/user/:username">Profile</Link>
           </NavItem>
 
+          <NavItem
+            onClick={event => {
+              //Stop the reloading of the page
+              event.preventDefault();
+            }}
+          >
+            <Link to="/Sign-In">Sign In</Link>
+          </NavItem>
 
+          <NavItem
+            onClick={event => {
+              //Stop the reloading of the page
+              event.preventDefault();
+            }}
+          >
+            <Link to="/Sign-Up">Sign Up</Link>
+          </NavItem>
 
+          <NavItem
+            onClick={event => {
+              //Stop the reloading of the page
+              event.preventDefault();
+            }}
+          >
+            <Link to="/">Log out</Link>
+          </NavItem>
 
 
           {/* )} */}

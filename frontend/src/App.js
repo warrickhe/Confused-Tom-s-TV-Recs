@@ -11,23 +11,24 @@ import AboutPage from "./pages/AboutPage";
 import LoggedInHomePage from "./pages/LoggedInHomePage";
 import UnknownPage from "./pages/UnknownPage";
 import TvPage from "./pages/TvPage";
+import NonLoggedInPage from "./pages/NonLoggedInHomePage";
 import FriendProfile from "./components/FriendProfile";
 import ReviewsList from "./components/ReviewsList";
 
 
 const App = () => {
-
   return (
     <div>
-      <Navbar/>      
+      <Navbar/>
       <Routes>
+        <Route path="/" element={<NonLoggedInPage/>} />
         <Route path="/Sign-In" element={<SignInPage/>}/>
         <Route path="/Sign-Up" element={<SignUpPage/>}/>
-        <Route path="/" element={<LoggedInHomePage/>} />
+        <Route path="/LoggedIn" element={<LoggedInHomePage/>} />
         <Route path="/review/user/:username" element={<FriendProfile />} />
         <Route path="/review/show/:showName" element={<TvPage/>} />
         <Route path="about" element={<AboutPage />} />
-        <Route path="*" element={<UnknownPage />} />
+        <Route path="*" element={<NonLoggedInPage/>} />
         <Route path="/userprof/:uname" element={<UserPage />} />
       </Routes>
     </div>
