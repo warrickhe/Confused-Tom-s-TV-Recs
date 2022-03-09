@@ -18,11 +18,12 @@ router.get("/username/:username/friends", async (req, res) => {
     return res.status(200).send(user.friends);
 });
 
-router.get("/feed", async (req, res) => {
+router.get("/feed/:username", async (req, res) => {
     //put username inside body here
-    var user = await User.findOne({ username: req.body.username });
+    var user = await User.findOne({ username: req.params.username });
     if (!user) return res.status(400).send("User doesn't exist.");
     var friends = await user.friends;
+    console.log(friends);
     var feed = await Review.find({'username': {$in: friends}});
     return res.status(200).send(feed);
 });
