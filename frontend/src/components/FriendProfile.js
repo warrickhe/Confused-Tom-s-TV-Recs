@@ -169,7 +169,7 @@ export default ({ }) => {
     <Col s={12} m={8}>
     <div>
       <h3> {username}'s Reviews</h3>
-      <Button  disabled={user==null||btState.state||user==username} onClick={OnAddFriend}> Add Friend</Button>
+      <Button  disabled={user==null||btState.state} onClick={OnAddFriend}> Add Friend</Button>
       <div>
         {reviewsList()}
       </div>
