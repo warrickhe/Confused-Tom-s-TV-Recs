@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Dropdown, Button, Icon } from "react-materialize";
+import { Container, Row, Col, TextInput } from "react-materialize"
 import moment from "moment";
 import { Link } from "react-router-dom";
 
@@ -8,6 +8,12 @@ const Review = (props) => {
     event.preventDefault();
   };
   return (
+    <Container>
+    <Row>
+    <Col s={12} m={4}>
+    </Col>
+    </Row>
+    <Col s={12} m={8}>
     <div>
       <div className="outerBox m10">
         <div>
@@ -64,41 +70,6 @@ const Review = (props) => {
               </div>
               {props.review.username === props.review.username && (
                 <div>
-                  {/* <Dropdown
-                    options={{
-                      alignment: "left",
-                      autoTrigger: true,
-                      closeOnClick: true,
-                      constrainWidth: true,
-                      container: null,
-                      coverTrigger: true,
-                      hover: false,
-                      inDuration: 150,
-                      onCloseEnd: null,
-                      onCloseStart: null,
-                      onOpenEnd: null,
-                      onOpenStart: null,
-                      outDuration: 250
-                    }}
-                    trigger={
-                      <Button flat node="button">
-                        <Icon>Edit</Icon>
-                      </Button>
-                    }
-                  >
-                    <a href="w" style={{ color: "black" }}>
-                      Edit
-                    </a>
-                    <a
-                      href="w"
-                      style={{ color: "black" }}
-                      onClick={event => {
-                        onReviewDelete(event, props.review_id);
-                      }}
-                    >
-                      Delete
-                    </a>
-                  </Dropdown> */}
                 </div>
               )}
               {/* } */}
@@ -108,6 +79,8 @@ const Review = (props) => {
         </div>
       </div>
     </div>
+    </Col>
+    </Container>
   );
 
 }
@@ -134,16 +107,6 @@ export default ({ username }) => {
     return;
   }, [reviews.length]);
 
-  // This method will delete a review -- router Not implemented yet!
-  //  async function deleteReview(id) {
-  //    await fetch(`http://localhost:4000/${id}`, {
-  //      method: "DELETE"
-  //    });
-
-  //    const newReviews = reviews.filter((el) => el._id !== id);
-  //    setReviews(newReviews);
-  //   }
-
 
   //This method will map out the records on the table
   function reviewsList() {
@@ -158,32 +121,20 @@ export default ({ username }) => {
     });
   }
 
-  return (
+  return ( 
+    <Container>
+    <Row>
+    <Col s={12} m={4}>
+    </Col>
+    </Row>
+    <Col s={12} m={8}>
     <div>
-      <h3>My Reviews</h3>
+      <h3> {username}'s Reviews</h3>
       <div>
         {reviewsList()}
       </div>
     </div>
+    </Col>
+    </Container>
   );
-
-
-
-
-
-
-  // This following section will display the table with the reviews authored by username.
-  //  
-
-  // return (
-  //     <div>
-  //       {reviews.map(singleReview => (
-  //         <SingleReview
-  //           details={singleReview}
-  //         />
-  //       ))}
-  //     </div>
-  //   );
-
-
 }

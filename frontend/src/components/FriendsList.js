@@ -6,11 +6,21 @@ import { Link } from "react-router-dom";
 
 const OneFriend = (props) => {
 
+    const navigate = useNavigate;
+
     // router for review deletion not defined yet!
     const onFriendDelete = (event, key) => {
       event.preventDefault();
       // const result = deletePost(key);
       // console.log(result);
+    };
+
+    const onFriendSelect = (event, key) => {
+      event.preventDefault();
+
+      // const result = deletePost(key);
+      // console.log(result);
+      // navigate("/${props.fUserName}");
     };
   
    return (
@@ -26,13 +36,17 @@ const OneFriend = (props) => {
                   color: "#385898",
                   fontWeight: 600
                 }}
+                onClick={event => {
+                  //setFriendSelected(true);
+                  //onFriendSelect(event, props.fUserName);
+                }}
               >
                 {props.fUserName}
               </div>
             </div>
             {props.fUserName === props.fUserName &&  (
               <div>
-                <Dropdown
+                {/* <Dropdown
                   options={{
                     alignment: "left",
                     autoTrigger: true,
@@ -66,7 +80,7 @@ const OneFriend = (props) => {
                   >
                     Delete
                   </a>
-                </Dropdown>
+                </Dropdown> */}
               </div>
             )}
            {/* } */}
@@ -88,6 +102,7 @@ const OneFriend = (props) => {
           password: "",
           friends: [],
         });
+    const [friendSelected, setFriendSelected ] = useState(0);
     //const [friends, setFriends] = useState([]);
     const navigate = useNavigate();
     console.log(username);
@@ -120,9 +135,14 @@ const OneFriend = (props) => {
        setData(data);
      }
    
+     if (friendSelected){
+       navigate("${username}");
+       return;
+     }
+     
      getFriends();
      return;
-   }, []);
+   }, [friendSelected]);
    
    
    //This method will map out the records on the table

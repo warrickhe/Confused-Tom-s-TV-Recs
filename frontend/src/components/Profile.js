@@ -75,12 +75,12 @@ export default ({ username }) => {
                 : "Loading"} */}
               {data.firstName}   {data.lastName}
             </div>
-            <div
+            {/* <div
               style={{ cursor: "pointer", marginTop: 10, color: "darkred" }}
               onClick={() => setEditMode(true)}
             >
               <Icon>edit</Icon>
-            </div>
+            </div> */}
           </div>
           <div style={{ borderTop: "1px solid lightgray" }}>
             <div
