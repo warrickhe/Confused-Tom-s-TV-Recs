@@ -1,4 +1,5 @@
 import React from 'react';
+import './NonLoggedInHomePage.css'
 import { Link } from "react-router-dom";
 
 function NonLoggedInPage() {
@@ -34,8 +35,8 @@ function NonLoggedInPage() {
         <h5> About: CONFUSED TOM'S TV RECS lets you and your friends view and share reviews of many movies and TV shows </h5>
       </div>
       <div>
-        <Link to="/Sign-In"><button>Sign In</button></Link>
-        <Link to="/Sign-Un"><button>Sign Up</button></Link>
+        <Link to="/Sign-In" class='button'>Sign In</Link> &nbsp;&nbsp;&nbsp;
+        <Link to="/Sign-Up" class='button'>Sign Up</Link>
       </div>
     </div>
   );
