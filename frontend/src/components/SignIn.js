@@ -35,7 +35,7 @@ function  SignIn()  {
                 return;
             }
             setUser(loginData.username);
-            navigate("/");
+            navigate("/LoggedIn");
 
             
         };

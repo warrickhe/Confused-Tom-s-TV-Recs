@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Navbar, Icon, NavItem, Container } from "react-materialize";
 import F from "../movies-icon.jpg";
 import { Link } from "react-router-dom"
+import UserContext from "../UserContext";
 
 export default ({ stage }) => {
+  const {user, setUser} = useContext(UserContext);
   return (
     <div style={{ background: "paleturquoise" }}>
       <Container>
@@ -65,7 +67,7 @@ export default ({ stage }) => {
               event.preventDefault();
             }}
           >
-            <Link to="/review/user/:username">Profile</Link>
+            <Link to={"/userprof/" + user }>Profile</Link>
           </NavItem>
 
           <NavItem

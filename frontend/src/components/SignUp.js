@@ -36,7 +36,7 @@ function SignUp() {
             return;
         }
         setUser(signUpData.username);
-        navigate("/");
+        navigate("/LoggedIn");
         
     };
     async function OnSubmit(e) {

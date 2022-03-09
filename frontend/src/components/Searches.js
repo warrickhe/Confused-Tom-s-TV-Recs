@@ -35,7 +35,7 @@ export default function Searches({navigation}) {
           window.alert(`TV Show ${searchData.showName} not found`);
           return;
         }else{
-          navigate(`review/show/${searchData.showName}`);
+          navigate(`/review/show/${searchData.showName}`);
         }
     }
     FetchData1();
