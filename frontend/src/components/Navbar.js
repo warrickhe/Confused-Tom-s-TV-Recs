@@ -4,8 +4,7 @@ import F from "../movies-icon.jpg";
 import { Link } from "react-router-dom"
 import UserContext from "../UserContext";
 
-export default ({ stage }) => {
-  const {user, setUser} = useContext(UserContext);
+function LoggedIn(user) {
   return (
     <div style={{ background: "paleturquoise" }}>
       <Container>
@@ -36,12 +35,95 @@ export default ({ stage }) => {
         >
           {/* {stage === "loggedIn" && ( */}
 
+          <NavItem
+            onClick={event => {
+              //Stop the reloading of the page
+              event.preventDefault();
+            }}
+          >
+            <Link to="/LoggedIn">Home</Link>
+          </NavItem>
 
-          {/* 
-          The following are the buttons in NavBar.
-          
-          
-          */}
+          <NavItem
+            onClick={event => {
+              //Stop the reloading of the page
+              event.preventDefault();
+            }}
+          >
+            <Link to="/about">About</Link>
+          </NavItem>
+
+          <NavItem
+            onClick={event => {
+              //Stop the reloading of the page
+              event.preventDefault();
+            }}
+          >
+            <Link to={"/userprof/" + user }>Profile</Link>
+          </NavItem>
+
+          <NavItem
+            onClick={event => {
+              //Stop the reloading of the page
+              event.preventDefault();
+            }}
+          >
+            <Link to="/Sign-In">Sign In</Link>
+          </NavItem>
+
+          <NavItem
+            onClick={event => {
+              //Stop the reloading of the page
+              event.preventDefault();
+            }}
+          >
+            <Link to="/Sign-Up">Sign Up</Link>
+          </NavItem>
+
+          <NavItem
+            onClick={event => {
+              //Stop the reloading of the page
+              event.preventDefault();
+            }}
+          >
+            <Link to="/">Log out</Link>
+          </NavItem>
+        </Navbar>
+      </Container>
+    </div>
+  );
+};
+
+function NotLoggedIn(user) {
+  return (
+    <div style={{ background: "paleturquoise" }}>
+      <Container>
+        <Navbar
+          alignLinks="right"
+          brand={
+            <a
+              className="brand-logo"
+              href="www.google.com"
+              style={{ paddingTop: 8 }}
+            >
+              <img src={F} alt="Logo" height="40px" />
+            </a>
+          }
+          className="custom-navbar"
+          menuIcon={<Icon>Menu</Icon>}
+          options={{
+            draggable: true,
+            edge: "left",
+            inDuration: 250,
+            onCloseEnd: null,
+            onCloseStart: null,
+            onOpenEnd: null,
+            onOpenStart: null,
+            outDuration: 200,
+            preventScrolling: true
+          }}
+        >
+          {/* {stage === "loggedIn" && ( */}
 
           <NavItem
             onClick={event => {
@@ -103,4 +185,14 @@ export default ({ stage }) => {
       </Container>
     </div>
   );
+};
+
+export default ({ stage }) => {
+  const {user, setUser} = useContext(UserContext);
+  if (user === null) {
+    return NotLoggedIn(user);
+  }
+  else {
+    return LoggedIn(user);
+  }
 };
