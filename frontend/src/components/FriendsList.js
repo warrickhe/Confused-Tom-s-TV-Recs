@@ -139,7 +139,7 @@ const OneFriend = (props) => {
    
    return (
     <div>
-      <h3>Friends</h3>
+      <h3 style={{ color: 'paleturquoise' }} >Friends</h3>
       <div>
         {friendsList()}
       </div>

@@ -50,7 +50,7 @@ export default (props) => {
         <img src={URL.createObjectURL(image)} alt="profile pic" height="40px" />
       )}
       <input type="file" onChange={event => setImage(event.target.files[0])} /> */}
-      <h5>Write a Review</h5>
+      <h3 style={{ color: 'paleturquoise' }} >Write a Review</h3>
       <div style={{
                 display:"flex",
                 flexDirection: 'column',

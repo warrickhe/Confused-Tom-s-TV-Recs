@@ -26,7 +26,7 @@ export default function Searches({navigation}) {
   
         const response = await fetch(`http://localhost:4000/review/show/${searchData.showName}`);
         if (!response.ok) {
-          const message = `An error has occurred: ${response.statusText}`;
+          const message = `There is currently no review of the show.`;
           window.alert(message);
           return;
         }
@@ -49,7 +49,7 @@ export default function Searches({navigation}) {
           const response = await fetch(`http://localhost:4000/username/${searchData.username}`);
           
           if (!response.ok) {
-            const message = `An error has occurred: ${response.statusText}`;
+            const message = `Username doesn't exist.`;
             window.alert(message);
             return;
           }

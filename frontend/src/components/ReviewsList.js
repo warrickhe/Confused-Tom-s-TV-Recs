@@ -171,7 +171,7 @@ export default ({ username, wantFeed }) => {
 
   return (
     <div>
-      <h3>{wantFeed? "Your Feed":"Reviews"}</h3>
+      <h3 style={{ color: 'paleturquoise' }}>{wantFeed? "Your Feed":"Reviews"}</h3>
       <div style={{overflowY:'scroll',height:'500px'}}>
         {reviewsList()}
       </div>
