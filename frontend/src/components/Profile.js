@@ -47,6 +47,8 @@ export default ({ username }) => {
   };
 
   return (
+    <div>
+    <h3 style={{ color: 'paleturquoise' }} >Profile</h3>
     <div className="outerBox m10">
       {editMode ? (
         <div>
@@ -82,6 +84,7 @@ export default ({ username }) => {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 };
