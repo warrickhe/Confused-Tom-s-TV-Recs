@@ -60,9 +60,17 @@ export default function Searches({navigation}) {
           }else if (searchData.username==user){
             window.alert(`Searching for self`);
             return;
-          }else{
-            navigate(`/review/user/${searchData.username}`)
           }
+          const response2 = await fetch(`http://localhost:4000/username/${user}/friends`);
+          const friends = await response2.json();
+          console.log("c",friends);
+          if (friends.includes(searchData.username)) {
+            console.log("Arrived");
+            navigate(`/userprof/${searchData.username}`);
+          }else{ 
+            navigate(`/review/user/${searchData.username}`);
+          }
+          
       }
       FetchData();
       return;
@@ -84,3 +92,4 @@ export default function Searches({navigation}) {
     </div>
   )
 }
+
