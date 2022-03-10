@@ -10,7 +10,7 @@ const Review = (props) => {
     event.preventDefault();
   };
   return (
-    <Container>
+    <div className="loggedinwindow" >
     <Row>
     <Col s={12} m={4}>
     </Col>
@@ -21,7 +21,7 @@ const Review = (props) => {
         <div>
           <div>
             <div style={{ display: "flex", marginBottom: 10 }}>
-              <div>
+              <div >
                 <div
                   style={{
                     color: "darkblue",
@@ -82,7 +82,7 @@ const Review = (props) => {
       </div>
     </div>
     </Col>
-    </Container>
+    </div>
   );
 
 }
@@ -158,15 +158,15 @@ export default ()=> {
   }
 
   return (
-    <div>
+    <div className="loggedinwindow">
     <div style={{
         display:"flex",
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems:'center'
        }}>
-      <h3> {showName}'s Reviews</h3>
-      <div>Average Rating: {average}</div>
+      <h3 style={{ color: 'paleturquoise' }}> {showName}'s Reviews</h3>
+      <div style={{ color: 'red' }}>Average Rating: {average}</div>
       </div>
       <div>
         {reviewsList()}

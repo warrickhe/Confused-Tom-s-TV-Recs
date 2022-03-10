@@ -5,22 +5,24 @@ import FriendsList from "./FriendsList";
 import ReviewsList from "./ReviewsList";
 import { useParams } from "react-router-dom";
 
-export default ({  }) => {
+export default ({ }) => {
 
     const params = useParams();
     const uName = params.uname.toString();
-    
+
     return (
-        <Container>
-            <Row>
-                <Col s={12} m={4}>
-                    <Profile username={uName} />
-                    <FriendsList username={uName} />
-                </Col>
-                <Col s={12} m={8}>
-                    <ReviewsList username={uName} />
-                </Col>
-            </Row>
-        </Container>
+        <center>
+            <div className="loggedinwindow" >
+                <Row>
+                    <Col s={12} m={4}>
+                        <Profile username={uName} />
+                        <FriendsList username={uName} />
+                    </Col>
+                    <Col s={12} m={8}>
+                        <ReviewsList username={uName} />
+                    </Col>
+                </Row>
+            </div>
+        </center>
     );
 };

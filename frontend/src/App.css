@@ -29,8 +29,53 @@ body {
 
 
 .app {
-  min-height: 60vh;
-  display: flex; 
-  justify-content: space-around;
+  min-height: 20vh;
+  min-width: 100vh;
+  background: paleturquoise;
+  /* display: flex;  */
+  /* justify-content: space-around; */
   align-items: center; 
 }
+
+.signinwindow {
+  min-height: 10vh;
+  min-width: 10vh;
+  max-width: 40vh;
+  background: rgb(255, 255, 255);
+  align-items: center;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-bottom: 7px;
+}
+
+.signupwindow {
+  min-height: 10vh;
+  min-width: 10vh;
+  max-width: 40vh;
+  background: rgb(255, 255, 255);
+  align-items: center;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 10px; 
+  margin-top: 0px;
+}
+
+.loggedinwindow {
+  /* min-height: 10vh;
+  min-width: 10vh;
+  max-width: 40vh; */
+  background-color: rgb(255, 255, 255);
+  margin-top: 20px;
+  margin-right: 100px;
+  margin-left: 100px;
+  padding-bottom: 50px;
+  border-radius: 10px;
+}
+
+
+
+

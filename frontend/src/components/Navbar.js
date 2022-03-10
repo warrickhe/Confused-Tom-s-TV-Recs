@@ -14,7 +14,7 @@ function LoggedIn(user) {
           brand={
             <a
               className="brand-logo"
-              href="www.google.com"
+              href="/"
               style={{ paddingTop: 8 }}
             >
               <div
@@ -71,7 +71,7 @@ function LoggedIn(user) {
             <Link to={"/userprof/" + user}>Profile</Link>
           </NavItem>
 
-          <NavItem
+          {/* <NavItem
             onClick={event => {
               //Stop the reloading of the page
               event.preventDefault();
@@ -87,15 +87,17 @@ function LoggedIn(user) {
             }}
           >
             <Link to="/Sign-Up">Sign Up</Link>
-          </NavItem>
+          </NavItem> */}
 
           <NavItem
             onClick={event => {
               //Stop the reloading of the page
               event.preventDefault();
+
             }}
           >
             <Link to="/">Log out</Link>
+             
           </NavItem>
         </Navbar>
       </Container>
@@ -112,7 +114,7 @@ function NotLoggedIn(user) {
           brand={
             <a
               className="brand-logo"
-              href="www.google.com"
+              href="/"
               style={{ paddingTop: 8 }}
             >
               <img src={F} alt="Logo" height="40px" />

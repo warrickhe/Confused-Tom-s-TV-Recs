@@ -35,13 +35,19 @@ function NonLoggedInPage() {
           
         />
       </div>
-      <div>
-        <h5> About: CONFUSED TOM'S TV RECS lets you and your friends view and share reviews of many movies and TV shows </h5>
+
+
+      <div className="app" >
+        <center><h3> Welcome to CONFUSED TOM'S TV RECS </h3></center>
+        <center><h5>The perfect place for you and your friends to view and share reviews of many movies and TV shows. </h5></center>
       </div>
+
       <div>
-        <Link to="/Sign-In" class='button'>Sign In</Link> &nbsp;&nbsp;&nbsp;
+        <Link to="/Sign-In" class='button'>Sign In</Link> 
         <Link to="/Sign-Up" class='button'>Sign Up</Link>
       </div>
+
+
     </div>
   );
 }

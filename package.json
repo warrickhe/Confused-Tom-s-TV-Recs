@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "react-background-slider": "^2.0.0",
     "react-router-dom": "^6.2.2"
   },
   "devDependencies": {
