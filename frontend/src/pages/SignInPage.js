@@ -4,9 +4,6 @@ import SignIn from '../components/SignIn';
 export default function SignInPage() {
     return (
         <div >
-            <h1>
-                Sign In 
-            </h1>  
             <div 
             style={{
                 display:"flex",
@@ -14,6 +11,9 @@ export default function SignInPage() {
                 justifyContent: 'center',
                 alignItems:'center'
                }}>
+               <h1>
+                Sign In 
+            </h1>  
             <div
                 style={{
                     width:100,

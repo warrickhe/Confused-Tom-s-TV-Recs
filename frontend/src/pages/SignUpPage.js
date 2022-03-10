@@ -4,10 +4,6 @@ import SignUp from '../components/SignUp'
 export default function SignUpPage() {
   return (
     <div >
-        <h1>
-            Sign Up 
-        </h1>  
-        <h5>Join Tom in his confusion</h5>
         <div 
         style={{
             display:"flex",
@@ -15,6 +11,10 @@ export default function SignUpPage() {
             justifyContent: 'center',
             alignItems:'center'
            }}>
+        <h1>
+            Sign Up 
+        </h1>  
+        <h5>Join Tom in his confusion</h5>
         <div
             style={{
                 width:100,
