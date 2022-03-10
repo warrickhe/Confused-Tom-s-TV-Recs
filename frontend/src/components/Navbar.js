@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 import UserContext from "../UserContext";
 
 function LoggedIn(user) {
+  const { user1, setUser } = useContext(UserContext);
   return (
     <div style={{ background: "paleturquoise" }}>
       <Container>
@@ -93,6 +94,7 @@ function LoggedIn(user) {
             onClick={event => {
               //Stop the reloading of the page
               event.preventDefault();
+              setUser(null);
 
             }}
           >
@@ -179,6 +181,7 @@ function NotLoggedIn(user) {
 
 export default ({ stage }) => {
   const { user, setUser } = useContext(UserContext);
+  
   if (user === null) {
     return NotLoggedIn(user);
   }
