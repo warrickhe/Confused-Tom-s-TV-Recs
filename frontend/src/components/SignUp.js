@@ -12,7 +12,9 @@ function SignUp() {
         username:"",
         password:""
     });
+    
     const {user, setUser} = useContext(UserContext);
+    
     const navigate = useNavigate();
     async function FetchData() {
         const signUpData = {
@@ -20,6 +22,10 @@ function SignUp() {
             lastName:data.lastName,
             username:data.username,
             password:data.password
+        };
+        const data2 = {
+            myUsername:data.username,
+            friendUsername:data.username
         };
         const response =await fetch(`http://localhost:4000/register`, {
             method: "POST",
@@ -36,6 +42,17 @@ function SignUp() {
             return;
         }
         setUser(signUpData.username);
+        
+        const response2 =await fetch(`http://localhost:4000/addfriend`, {
+            method: "POST",
+            body: JSON.stringify(data2),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });//being friends with self
+        const ms2=await response2.text();
+        console.log(ms2);
+        console.log(data2);
         navigate("/LoggedIn");
         
     };

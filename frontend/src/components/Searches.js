@@ -58,18 +58,13 @@ export default function Searches({navigation}) {
             window.alert(`User with username ${searchData.username} not found`);
             return;
           }else if (searchData.username==user){
-            window.alert(`Searching for self`);
-            return;
-          }
-          const response2 = await fetch(`http://localhost:4000/username/${user}/friends`);
-          const friends = await response2.json();
-          console.log("c",friends);
-          if (friends.includes(searchData.username)) {
-            console.log("Arrived");
             navigate(`/userprof/${searchData.username}`);
+          
           }else{ 
             navigate(`/review/user/${searchData.username}`);
           }
+         
+         
           
       }
       FetchData();

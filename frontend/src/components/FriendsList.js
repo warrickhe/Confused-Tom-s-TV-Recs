@@ -110,6 +110,8 @@ const OneFriend = (props) => {
         window.alert(`User with username ${username} not found`);
         navigate("/");
         return;
+      }if (data.friends.includes(username)){//filters own user
+        data.friends=data.friends.filter(function(e) { return e !== `${username}` })
       }
        //const data = await response.json();
        console.log(data);

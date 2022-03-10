@@ -98,7 +98,7 @@ export default ({ }) => {
   const [btState, setState] = useState({
     state:false
   });
-  console.log("x",user);
+
   // This method fetches the records from the database.
   useEffect(() => {
     async function getReviews() {
@@ -112,7 +112,23 @@ export default ({ }) => {
       const data = await response.json();
       setReviews(data);
     }
-
+    async function friendsAlready() {//if friends, change button
+      const response = await fetch(`http://localhost:4000/username/${user}/friends`);
+        if (!response.ok) {
+          const message = `An error has occurred: ${response.statusText}`;
+          console.log("q",response);
+          window.alert(message);
+          return;
+        }
+        const friends= await response.json();
+        console.log(friends);
+        if (friends.includes(username)){
+          setState({state:true})
+      }
+    }
+    if(user!=null){
+     friendsAlready();
+    }
     getReviews();
 
     return;
@@ -159,6 +175,7 @@ export default ({ }) => {
       );
     });
   }
+  
 
   return ( 
     <Container>

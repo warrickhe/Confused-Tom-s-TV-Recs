@@ -39,8 +39,8 @@ export default (props) => {
       return;
     }
 
-
-    navigate(`/userprof/${user}`);
+    navigate(`/`);
+    navigate(`/LoggedIn`);
   }
 
 
