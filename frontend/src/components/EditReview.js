@@ -1,6 +1,7 @@
 import React, { useState,useContext } from "react";
 import { useParams, useNavigate } from "react-router";
 import UserContext from "../UserContext";
+import { Button,TextInput } from "react-materialize";
 
 export default (props) => {
   const [showName, setShowName] = useState("");
@@ -44,27 +45,34 @@ export default (props) => {
 
 
   return (
-    <div>
+    <div className="outerBox m10">
       {/* {image && (
         <img src={URL.createObjectURL(image)} alt="profile pic" height="40px" />
       )}
       <input type="file" onChange={event => setImage(event.target.files[0])} /> */}
-      <input
+      <h5>Write a Review</h5>
+      <div style={{
+                display:"flex",
+                flexDirection: 'column',
+                alignItems:'stretch'
+               }}>
+      <TextInput style = {{ flex: 1 }}
         value={showName}    
-        placeholder="Please enter the show name."
+        label="Show Name"
         onChange={event => setShowName(event.target.value)}
       />
-      <input
+      <TextInput style = {{ flex: 1 }}
         value={rating}
-        placeholder="Please enter rating from 1 to 5 (5 = The most satisfied)"
+        label="Rating (from 1-5)"
         onChange={event => setRating(event.target.value)}
       />
-      <input
+      <TextInput style = {{ flex: 1 }}
         value={props.review}
-        placeholder="Please enter the review"
+        label="Review"
         onChange={event => setReview(event.target.value)}
       />
-      <button onClick={onSubmit}>Submit</button>
+      </div>
+      <Button onClick={onSubmit}>Submit</Button>
     </div>
   );
 };

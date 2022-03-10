@@ -85,7 +85,7 @@ export default function Searches({navigation}) {
             <Button onClick={fSearch}>Search</Button> 
         </div>
         <div style={{display:"flex"}}> 
-            <TextInput label="Search for Movies" onChange={e=>onChangeText('mSearch', e.target.value)} />
+            <TextInput label="Search for Shows" onChange={e=>onChangeText('mSearch', e.target.value)} />
             <Button onClick={mSearch}>Search</Button> 
         </div>
     </div>

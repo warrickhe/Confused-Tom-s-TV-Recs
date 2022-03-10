@@ -121,7 +121,7 @@ export default ()=> {
     
     getReviews();
     reviewAv();
-    console.log('x',average)
+    console.log('x',parseFloat(average.toString()));
     return;
   }, [reviews.length]);
 
@@ -140,7 +140,8 @@ export default ()=> {
     }
       const temp = await response.json();
       const avg=temp['0']['averageRating'];
-      setAverage(avg);
+      const aver=parseFloat(avg.toString()).toFixed(2);
+      setAverage(aver);
       return;
   }
   //This method will map out the records on the table
