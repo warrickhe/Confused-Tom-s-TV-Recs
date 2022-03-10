@@ -123,7 +123,6 @@ function NotLoggedIn(user) {
             preventScrolling: true
           }}
         >
-          {/* {stage === "loggedIn" && ( */}
 
           <NavItem
             onClick={event => {
@@ -131,7 +130,7 @@ function NotLoggedIn(user) {
               event.preventDefault();
             }}
           >
-            <Link to="/LoggedIn">Home</Link>
+            <Link to="/">Home</Link>
           </NavItem>
 
           <NavItem
@@ -141,15 +140,6 @@ function NotLoggedIn(user) {
             }}
           >
             <Link to="/about">About</Link>
-          </NavItem>
-
-          <NavItem
-            onClick={event => {
-              //Stop the reloading of the page
-              event.preventDefault();
-            }}
-          >
-            <Link to={"/userprof/" + user }>Profile</Link>
           </NavItem>
 
           <NavItem
@@ -170,17 +160,6 @@ function NotLoggedIn(user) {
             <Link to="/Sign-Up">Sign Up</Link>
           </NavItem>
 
-          <NavItem
-            onClick={event => {
-              //Stop the reloading of the page
-              event.preventDefault();
-            }}
-          >
-            <Link to="/">Log out</Link>
-          </NavItem>
-
-
-          {/* )} */}
         </Navbar>
       </Container>
     </div>
