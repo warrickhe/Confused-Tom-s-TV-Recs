@@ -1,6 +1,7 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { Navbar, Icon, NavItem, Container } from "react-materialize";
-import F from "../movies-icon.jpg";
+import F from "../Confused-Tom-2.png";
+import F2 from "../Confused-Tom-3.png";
 import { Link } from "react-router-dom"
 import UserContext from "../UserContext";
 
@@ -16,7 +17,15 @@ function LoggedIn(user) {
               href="www.google.com"
               style={{ paddingTop: 8 }}
             >
-              <img src={F} alt="Logo" height="40px" />
+              <div
+                style={{
+
+                  overflow: "hidden"
+                }} >
+                <img src={F} alt="Logo" height="40px" />
+
+                
+              </div>
             </a>
           }
           className="custom-navbar"
@@ -59,7 +68,7 @@ function LoggedIn(user) {
               event.preventDefault();
             }}
           >
-            <Link to={"/userprof/" + user }>Profile</Link>
+            <Link to={"/userprof/" + user}>Profile</Link>
           </NavItem>
 
           <NavItem
@@ -167,7 +176,7 @@ function NotLoggedIn(user) {
 };
 
 export default ({ stage }) => {
-  const {user, setUser} = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   if (user === null) {
     return NotLoggedIn(user);
   }

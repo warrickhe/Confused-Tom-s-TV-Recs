@@ -1,4 +1,5 @@
 import React from 'react'
+import F from "../Confused-Tom-2.png";
 import SignIn from '../components/SignIn';
 
 export default function SignInPage() {
@@ -24,7 +25,7 @@ export default function SignInPage() {
                 }}
             > 
                 <img
-                    src="https://i.pinimg.com/originals/05/1b/7d/051b7d93394fc94c082f1801bc4ccfb2.jpg"
+                    src={F}
                     alt="logo"
                     height="100%"
                     

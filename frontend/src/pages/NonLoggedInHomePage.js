@@ -1,5 +1,7 @@
 import React from 'react';
 import './NonLoggedInHomePage.css'
+import F from "../Confused-Tom-2.png";
+import F2 from "../Confused-Tom-3.png";
 import { Link } from "react-router-dom";
 
 function NonLoggedInPage() {
@@ -26,9 +28,11 @@ function NonLoggedInPage() {
         overflow: "hidden"
       }}>
         <img
-          src="https://i.pinimg.com/originals/05/1b/7d/051b7d93394fc94c082f1801bc4ccfb2.jpg"
+          src={F2}
           alt="logo"
           height="100%"
+
+          
         />
       </div>
       <div>

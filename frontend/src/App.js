@@ -27,14 +27,14 @@ const App = () => {
       <Navbar/>      
       <Routes>
         <Route path="/" element={<NonLoggedInPage/>} />
-        <Route path="/Sign-In" element={<SignInPage/>}/>
-        <Route path="/Sign-Up" element={<SignUpPage/>}/>
-        <Route path="/LoggedIn" element={<LoggedInHomePage/>} />
-        <Route path="/review/user/:username" element={<FriendProfile />} />
-        <Route path="/review/show/:showName" element={<TvPage/>} />
+        <Route path="Sign-In" element={<SignInPage/>}/>
+        <Route path="Sign-Up" element={<SignUpPage/>}/>
+        <Route path="LoggedIn" element={<LoggedInHomePage/>} />
+        <Route path="review/user/:username" element={<FriendProfile />} />
+        <Route path="review/show/:showName" element={<TvPage/>} />
         <Route path="about" element={<AboutPage />} />
         <Route path="*" element={<NonLoggedInPage/>} />
-        <Route path="/userprof/:uname" element={<UserPage />} />
+        <Route path="userprof/:uname" element={<UserPage />} />
       </Routes>
       </UserContext.Provider>
     </div>

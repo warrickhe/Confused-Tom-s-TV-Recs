@@ -9,7 +9,7 @@ export default function AboutPage() {
 
       <h1 style={{ color: 'paleturquoise' }}>About us</h1>
       <div className="app">
-        <h3 style={{ color: 'white' }}>We'll write things about our website here.
+        <h3 style={{ color: 'paleturquoise' }}>We'll write things about our website here.
           Its functionality and stuff. -Nima</h3>
           {/* <Searches /> */}
       </div>
