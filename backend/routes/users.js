@@ -24,7 +24,7 @@ router.get("/feed/:username", async (req, res) => {
     if (!user) return res.status(400).send("User doesn't exist.");
     var friends = await user.friends;
     console.log(friends);
-    var feed = await Review.find({'username': {$in: friends}});
+    var feed = await Review.find({'username': {$in: friends}}).sort({date: 'descending'});
     return res.status(200).send(feed);
 });
 
