@@ -31,7 +31,7 @@ function  SignIn()  {
             if (!response.ok){
                 navigate("/Sign-In");
                 console.log(response);
-                window.alert(ms);
+                window.alert("Bad Login");
                 return;
             }
             setUser(loginData.username);
