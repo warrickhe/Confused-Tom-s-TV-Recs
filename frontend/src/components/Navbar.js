@@ -15,7 +15,7 @@ function LoggedIn(user) {
           brand={
             <a
               className="brand-logo"
-              href="/"
+              href="/LoggedIn"
               style={{ paddingTop: 8 }}
             >
               <div
@@ -24,8 +24,6 @@ function LoggedIn(user) {
                   overflow: "hidden"
                 }} >
                 <img src={F} alt="Logo" height="40px" />
-
-                
               </div>
             </a>
           }
@@ -172,7 +170,6 @@ function NotLoggedIn(user) {
           >
             <Link to="/Sign-Up">Sign Up</Link>
           </NavItem>
-
         </Navbar>
       </Container>
     </div>
@@ -181,7 +178,6 @@ function NotLoggedIn(user) {
 
 export default ({ stage }) => {
   const { user, setUser } = useContext(UserContext);
-  
   if (user === null) {
     return NotLoggedIn(user);
   }
